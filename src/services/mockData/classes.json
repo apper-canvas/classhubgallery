@@ -1,0 +1,42 @@
+[
+  {
+    "id": "1",
+    "name": "Advanced Mathematics",
+    "code": "MATH301",
+    "semester": "Spring",
+    "year": 2024,
+    "schedule": "MWF 10:00-11:00 AM"
+  },
+  {
+    "id": "2",
+    "name": "Computer Science Fundamentals",
+    "code": "CS101",
+    "semester": "Spring",
+    "year": 2024,
+    "schedule": "TTh 2:00-3:30 PM"
+  },
+  {
+    "id": "3",
+    "name": "English Literature",
+    "code": "ENG201",
+    "semester": "Spring",
+    "year": 2024,
+    "schedule": "MWF 1:00-2:00 PM"
+  },
+  {
+    "id": "4",
+    "name": "Physics Laboratory",
+    "code": "PHYS205",
+    "semester": "Spring",
+    "year": 2024,
+    "schedule": "T 3:00-5:00 PM"
+  },
+  {
+    "id": "5",
+    "name": "History of Science",
+    "code": "HIST150",
+    "semester": "Spring",
+    "year": 2024,
+    "schedule": "MW 11:00-12:00 PM"
+  }
+]

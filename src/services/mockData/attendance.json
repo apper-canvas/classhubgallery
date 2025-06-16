@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "studentId": "1",
+    "classId": "1",
+    "date": "2024-01-20",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "2",
+    "studentId": "2",
+    "classId": "1",
+    "date": "2024-01-20",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "3",
+    "studentId": "3",
+    "classId": "1",
+    "date": "2024-01-20",
+    "status": "absent",
+    "notes": "Sick leave"
+  },
+  {
+    "id": "4",
+    "studentId": "4",
+    "classId": "1",
+    "date": "2024-01-20",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "5",
+    "studentId": "5",
+    "classId": "1",
+    "date": "2024-01-20",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "6",
+    "studentId": "1",
+    "classId": "1",
+    "date": "2024-01-22",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "7",
+    "studentId": "2",
+    "classId": "1",
+    "date": "2024-01-22",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "8",
+    "studentId": "3",
+    "classId": "1",
+    "date": "2024-01-22",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "9",
+    "studentId": "4",
+    "classId": "1",
+    "date": "2024-01-22",
+    "status": "absent",
+    "notes": "Family emergency"
+  },
+  {
+    "id": "10",
+    "studentId": "5",
+    "classId": "1",
+    "date": "2024-01-22",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "11",
+    "studentId": "6",
+    "classId": "2",
+    "date": "2024-01-21",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "12",
+    "studentId": "7",
+    "classId": "2",
+    "date": "2024-01-21",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "13",
+    "studentId": "8",
+    "classId": "2",
+    "date": "2024-01-21",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "14",
+    "studentId": "9",
+    "classId": "2",
+    "date": "2024-01-21",
+    "status": "present",
+    "notes": ""
+  },
+  {
+    "id": "15",
+    "studentId": "10",
+    "classId": "2",
+    "date": "2024-01-21",
+    "status": "absent",
+    "notes": "Late enrollment"
+  }
+]

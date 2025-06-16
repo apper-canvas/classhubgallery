@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "studentId": "1",
+    "assignmentId": "1",
+    "score": 95,
+    "maxScore": 100,
+    "submittedDate": "2024-01-25T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "studentId": "2",
+    "assignmentId": "1",
+    "score": 87,
+    "maxScore": 100,
+    "submittedDate": "2024-01-25T00:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "studentId": "3",
+    "assignmentId": "1",
+    "score": 92,
+    "maxScore": 100,
+    "submittedDate": "2024-01-25T00:00:00.000Z"
+  },
+  {
+    "id": "4",
+    "studentId": "4",
+    "assignmentId": "1",
+    "score": 78,
+    "maxScore": 100,
+    "submittedDate": "2024-01-25T00:00:00.000Z"
+  },
+  {
+    "id": "5",
+    "studentId": "5",
+    "assignmentId": "1",
+    "score": 89,
+    "maxScore": 100,
+    "submittedDate": "2024-01-25T00:00:00.000Z"
+  },
+  {
+    "id": "6",
+    "studentId": "1",
+    "assignmentId": "2",
+    "score": 88,
+    "maxScore": 100,
+    "submittedDate": "2024-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "7",
+    "studentId": "2",
+    "assignmentId": "2",
+    "score": 91,
+    "maxScore": 100,
+    "submittedDate": "2024-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "8",
+    "studentId": "3",
+    "assignmentId": "2",
+    "score": 85,
+    "maxScore": 100,
+    "submittedDate": "2024-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "9",
+    "studentId": "4",
+    "assignmentId": "2",
+    "score": 82,
+    "maxScore": 100,
+    "submittedDate": "2024-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "10",
+    "studentId": "5",
+    "assignmentId": "2",
+    "score": 94,
+    "maxScore": 100,
+    "submittedDate": "2024-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "11",
+    "studentId": "6",
+    "assignmentId": "3",
+    "score": 42,
+    "maxScore": 50,
+    "submittedDate": "2024-01-28T00:00:00.000Z"
+  },
+  {
+    "id": "12",
+    "studentId": "7",
+    "assignmentId": "3",
+    "score": 38,
+    "maxScore": 50,
+    "submittedDate": "2024-01-28T00:00:00.000Z"
+  },
+  {
+    "id": "13",
+    "studentId": "8",
+    "assignmentId": "3",
+    "score": 45,
+    "maxScore": 50,
+    "submittedDate": "2024-01-28T00:00:00.000Z"
+  },
+  {
+    "id": "14",
+    "studentId": "9",
+    "assignmentId": "3",
+    "score": 41,
+    "maxScore": 50,
+    "submittedDate": "2024-01-28T00:00:00.000Z"
+  },
+  {
+    "id": "15",
+    "studentId": "10",
+    "assignmentId": "3",
+    "score": 47,
+    "maxScore": 50,
+    "submittedDate": "2024-01-28T00:00:00.000Z"
+  }
+]
