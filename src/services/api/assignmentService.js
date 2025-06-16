@@ -1,50 +1,203 @@
-import assignmentsData from '../mockData/assignments.json'
-
-const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-
-let assignments = [...assignmentsData]
+import { toast } from 'react-toastify';
 
 const assignmentService = {
   async getAll() {
-    await delay(250)
-    return [...assignments]
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        Fields: ['Name', 'Tags', 'Owner', 'CreatedOn', 'CreatedBy', 'ModifiedOn', 'ModifiedBy', 'class_id', 'category', 'weight', 'due_date', 'total_points']
+      };
+
+      const response = await apperClient.fetchRecords('assignment', params);
+      
+      if (!response.success) {
+        console.error(response.message);
+        toast.error(response.message);
+        return [];
+      }
+
+      return response.data || [];
+    } catch (error) {
+      console.error("Error fetching assignments:", error);
+      throw error;
+    }
   },
 
   async getById(id) {
-    await delay(200)
-    const assignment = assignments.find(a => a.id === id)
-    return assignment ? { ...assignment } : null
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        fields: ['Name', 'Tags', 'Owner', 'CreatedOn', 'CreatedBy', 'ModifiedOn', 'ModifiedBy', 'class_id', 'category', 'weight', 'due_date', 'total_points']
+      };
+
+      const response = await apperClient.getRecordById('assignment', id, params);
+      
+      if (!response.success) {
+        console.error(response.message);
+        return null;
+      }
+
+      return response.data;
+    } catch (error) {
+      console.error(`Error fetching assignment with ID ${id}:`, error);
+      return null;
+    }
   },
 
   async create(assignmentData) {
-    await delay(400)
-    const newAssignment = {
-      ...assignmentData,
-      id: Date.now().toString()
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        records: [{
+          Name: assignmentData.name || assignmentData.Name,
+          class_id: parseInt(assignmentData.classId || assignmentData.class_id),
+          category: assignmentData.category,
+          weight: assignmentData.weight,
+          due_date: assignmentData.dueDate || assignmentData.due_date,
+          total_points: assignmentData.totalPoints || assignmentData.total_points,
+          Tags: assignmentData.tags || assignmentData.Tags || '',
+          Owner: assignmentData.owner || assignmentData.Owner
+        }]
+      };
+
+      const response = await apperClient.createRecord('assignment', params);
+
+      if (!response.success) {
+        console.error(response.message);
+        toast.error(response.message);
+        return null;
+      }
+
+      if (response.results) {
+        const failedRecords = response.results.filter(result => !result.success);
+        
+        if (failedRecords.length > 0) {
+          console.error(`Failed to create ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+          
+          failedRecords.forEach(record => {
+            record.errors?.forEach(error => {
+              toast.error(`${error.fieldLabel}: ${error.message}`);
+            });
+            if (record.message) toast.error(record.message);
+          });
+          return null;
+        }
+
+        return response.results[0].data;
+      }
+    } catch (error) {
+      console.error("Error creating assignment:", error);
+      throw error;
     }
-    assignments.push(newAssignment)
-    return { ...newAssignment }
   },
 
   async update(id, data) {
-    await delay(350)
-    const index = assignments.findIndex(a => a.id === id)
-    if (index !== -1) {
-      assignments[index] = { ...assignments[index], ...data }
-      return { ...assignments[index] }
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
+
+      const params = {
+        records: [{
+          Id: parseInt(id),
+          Name: data.name || data.Name,
+          class_id: parseInt(data.classId || data.class_id),
+          category: data.category,
+          weight: data.weight,
+          due_date: data.dueDate || data.due_date,
+          total_points: data.totalPoints || data.total_points,
+          Tags: data.tags || data.Tags,
+          Owner: data.owner || data.Owner
+        }]
+      };
+
+      const response = await apperClient.updateRecord('assignment', params);
+
+      if (!response.success) {
+        console.error(response.message);
+        toast.error(response.message);
+        return null;
+      }
+
+      if (response.results) {
+        const failedRecords = response.results.filter(result => !result.success);
+        
+        if (failedRecords.length > 0) {
+          console.error(`Failed to update ${failedRecords.length} records:${JSON.stringify(failedRecords)}`);
+          
+          failedRecords.forEach(record => {
+            record.errors?.forEach(error => {
+              toast.error(`${error.fieldLabel}: ${error.message}`);
+            });
+            if (record.message) toast.error(record.message);
+          });
+          return null;
+        }
+
+        return response.results[0].data;
+      }
+    } catch (error) {
+      console.error("Error updating assignment:", error);
+      throw error;
     }
-    throw new Error('Assignment not found')
   },
 
   async delete(id) {
-    await delay(300)
-    const index = assignments.findIndex(a => a.id === id)
-    if (index !== -1) {
-      const deleted = assignments.splice(index, 1)[0]
-      return { ...deleted }
-    }
-    throw new Error('Assignment not found')
-  }
-}
+    try {
+      const { ApperClient } = window.ApperSDK;
+      const apperClient = new ApperClient({
+        apperProjectId: import.meta.env.VITE_APPER_PROJECT_ID,
+        apperPublicKey: import.meta.env.VITE_APPER_PUBLIC_KEY
+      });
 
-export default assignmentService
+      const params = {
+        RecordIds: [parseInt(id)]
+      };
+
+      const response = await apperClient.deleteRecord('assignment', params);
+
+      if (!response.success) {
+        console.error(response.message);
+        toast.error(response.message);
+        return false;
+      }
+
+      if (response.results) {
+        const failedDeletions = response.results.filter(result => !result.success);
+        
+        if (failedDeletions.length > 0) {
+          console.error(`Failed to delete ${failedDeletions.length} records:${JSON.stringify(failedDeletions)}`);
+          
+          failedDeletions.forEach(record => {
+            if (record.message) toast.error(record.message);
+          });
+          return false;
+        }
+
+        return true;
+      }
+    } catch (error) {
+      console.error("Error deleting assignment:", error);
+      throw error;
+    }
+  }
+};
+
+export default assignmentService;
